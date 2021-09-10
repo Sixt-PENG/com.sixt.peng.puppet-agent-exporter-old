@@ -16,7 +16,7 @@ const usage = `puppet-agent-exporter - tool for exporting Puppet agent metrics f
 
 Usage:
 
-  prom-puppet-agent-exporter [commands|flags]
+  puppet-agent-exporter [commands|flags]
 
 The commands & flags are:
 
