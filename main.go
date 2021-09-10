@@ -12,7 +12,7 @@ import (
 	"github.com/prometheus/common/log"
 )
 
-const usage = `prom-puppet-agent-exporter - tool for exporting Puppet agent metrics for Prometheus
+const usage = `puppet-agent-exporter - tool for exporting Puppet agent metrics for Prometheus
 
 Usage:
 
