@@ -1,45 +1,18 @@
-# Prom Puppet Agent Exporter
+# Puppet Agent Exporter
 
-`Prom Puppet Agent Exporter` is puppet agent report statistics exporter for Prometheus.
+`Puppet Agent Exporter` is puppet agent report statistics exporter for Prometheus. It has been adapted to work with the go build command (instead of using a Makefile) as well as unnecessary files have been removed.
 
-The `Prom Puppet Agent Exporter` reads last run summary report and exposes them for Prometheus consumption.
+The `Puppet Agent Exporter` reads last run summary report and exposes them for Prometheus consumption.
 
 ## Building and running
 
+The application can be easily built using the following command:
+
 ```
-$ make build
-make build
->> installing golang dependencies into vendor directory...
->> building binary...
->> GOOS= GOARCH= GO15VENDOREXPERIMENT=1 go build -ldflags -X main.version=0.2.0-7-gccf3901 -X main.goVersion=go version go1.8.3 darwin/amd64 -X main.gitBranch=GOLIBS-1534 -o prom-puppet-agent-exporter
-$ ./prom-puppet-agent-exporter-linux -web.listen-address "localhost:9005" -web.telemetry-path "/metrics" -namespace "puppet_agent" -puppet.last-run-report="/var/lib/puppet/state/last_run_report.yaml"
+go build
 ```
 
-### Other useful make commands:
-
-The building application for current system:
-```
-$ make build
-```
-
-The running unit tests:
-```
-$ make test
-```
-
-The applying go tool to code:
-```
-$ make fmt
->> formatting source
-
-$ make lint
->> linting source
-
-$ make imports
->> fixing source imports
-```
-
-### Flags
+### Configuration Flags
 
 Name                    | Default                                     | Description
 ----------------------- | ------------------------------------------- | -----------
