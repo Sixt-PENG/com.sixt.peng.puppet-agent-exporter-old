@@ -12,11 +12,11 @@ The application can be easily built using the following command:
 go build
 ```
 
-### RPM Build/Spec for Prometheus-Katello Service Discovery and dependencies
+### RPM Build/Spec for Puppet Agent Exporter and dependencies
 
 Tries to follow the [packaging guidelines](https://fedoraproject.org/wiki/Packaging:Guidelines) from Fedora.
 
-* Binary: `/usr/bin/prometheus-katello-sd`
+* Binary: `/usr/bin/puppet_agent_exporter`
 
 #### Build
 
