@@ -1,0 +1,14 @@
+[Unit]
+Description=Prometheus puppet agent Exporter
+Documentation=https://github.com/monitoring-tools/prom-puppet-agent-exporter
+After=network.target
+
+[Service]
+EnvironmentFile=/etc/default/puppet_agent_exporter
+ExecStart=/usr/bin/puppet_agent_exporter $OPTIONS
+ExecReload=/bin/kill -HUP $MAINPID
+Restart=always
+RestartSec=5s
+
+[Install]
+WantedBy=multi-user.target

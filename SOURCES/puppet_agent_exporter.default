@@ -1,0 +1,1 @@
+OPTIONS="/usr/bin/puppet_agent_exporter -web.listen-address 127.0.0.1:9110 -puppet.last-run-summary /opt/puppetlabs/puppet/cache/state/last_run_summary.yaml"

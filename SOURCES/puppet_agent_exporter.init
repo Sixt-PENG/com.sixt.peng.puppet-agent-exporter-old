@@ -1,0 +1,67 @@
+#!/bin/bash
+#
+# puppet agent exporter - export statistics to be consumed by a remote Prometheus server
+#
+# chkconfig: 345 70 30
+# description: Prometheus puppet_agent_exporter
+# processname: puppet_agent_exporter
+### BEGIN INIT INFO
+# Provides:
+# Required-Start:
+# Required-Stop:
+# Default-Start: 3 4 5
+# Default-Stop: 0 1 2 6
+### END INIT INFO
+#
+#
+#  Prometheus puppet_agent_exporter
+#  /etc/init.d/puppet_agent_exporter
+#
+#
+# Source function library.
+. /etc/init.d/functions
+PROGNAME=puppet_agent_exporter
+PROG=/usr/bin/$PROGNAME
+USER=root
+LOCKFILE=/var/run/$PROGNAME.pid
+
+# Additional environment file
+if [ -f /etc/default/apache_exporter ]; then
+      . /etc/default/apache_exporter
+fi
+
+start() {
+    echo -n "Starting $PROGNAME: "
+    daemon --user $USER --pidfile="$LOCKFILE" "$PROG $OPTIONS &"
+    echo $(pidofproc $PROGNAME) >$LOCKFILE
+    echo
+}
+stop() {
+    echo -n "Shutting down $PROGNAME: "
+    killproc $PROGNAME
+    rm -f $LOCKFILE
+    echo
+}
+case "$1" in
+    start)
+    start
+    ;;
+    stop)
+    stop
+    ;;
+    status)
+    status $PROGNAME
+    ;;
+    restart)
+    stop
+    start
+    ;;
+    reload)
+    echo "Sending SIGHUP to $PROGNAME"
+    kill -SIGHUP $(pidofproc $PROGNAME)#!/bin/bash
+    ;;
+    *)
+        echo "Usage: service puppet_agent_exporter {start|stop|status|reload|restart}"
+        exit 1
+    ;;
+esac
