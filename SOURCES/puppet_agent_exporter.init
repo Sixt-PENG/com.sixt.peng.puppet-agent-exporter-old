@@ -26,8 +26,8 @@ USER=root
 LOCKFILE=/var/run/$PROGNAME.pid
 
 # Additional environment file
-if [ -f /etc/default/apache_exporter ]; then
-      . /etc/default/apache_exporter
+if [ -f /etc/default/puppet_agent_exporter ]; then
+      . /etc/default/puppet_agent_exporter
 fi
 
 start() {

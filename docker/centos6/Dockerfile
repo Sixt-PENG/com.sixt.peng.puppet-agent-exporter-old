@@ -10,7 +10,6 @@ ADD SOURCES/* /root/rpmbuild/SOURCES/
 ADD SPECS/* /root/rpmbuild/SPECS/
 RUN ln -s /root/rpmbuild/RPMS /RPMS
 RUN wget -qO- https://golang.org/dl/go1.16.2.linux-amd64.tar.gz | tar xzf - -C /usr/share/
-RUN wget -qO- https://golang.org/dl/go1.16.2.linux-amd64.tar.gz | tar xzf - -C /usr/share/
 RUN echo "Go Version: $(/usr/share/go/bin/go version)"
 RUN echo "Building: $(cd /root/rpmbuild/ROOT && /usr/share/go/bin/go build -o /root/rpmbuild/BUILD/puppet_agent_exporter)"
 
