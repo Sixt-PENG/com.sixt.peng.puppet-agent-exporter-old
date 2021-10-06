@@ -1,7 +1,7 @@
 %global debug_package %{nil}
 
 Name:		 puppet_agent_exporter
-Version: 1.0.0
+Version: 1.0.1
 Release: el7
 Summary: Prometheus puppet agent exporter
 License: MIT
